@@ -1,0 +1,1 @@
+for i in `cat aaaRdDM_UpDEG_genelist.txt`; do echo $i; grep -w $i RdDM_UpDEG_expressionMAizeGDB.csv | awk -F',' '{max=-1; cols=""; for(i=4;i<=NF;i++){if($i+0>max+0){max=$i; cols=i} else if($i+0==max+0){cols=cols","i}} print max, cols}'; done | sed 'N;s/\n/\t/g'
