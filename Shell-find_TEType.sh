@@ -23,7 +23,6 @@ grep -e "DNA" -e "MITE" -e "Evirus" res_* | sed 's/blast:/ /g' | awk '{print $2}
 grep -e "LTR" -e "LINE" -e "SINE" res_* | sed 's/blast:/ /g' | awk '{print $2}' | sort | uniq > temp_RNA
 cat temp_DNA temp_RNA | sort | uniq -d -c | cat -n
 
-cd /mnt/ufs18/nodr/home/chenhua9/2025_GrassFamily_V5Updated/RdDM_pathway/RdDM_3KB_sequence_TE_Blast
 mkdir Res_TE
 for i in Os Bd Ot Sb Sv Ta Zm; do echo $i; cp ../$i/Up_regulated/Res_TE/temp_DNA temp_DNA_Upregulated_${i}; cp ../$i/Up_regulated/Res_TE/temp_RNA temp_RNA_Upregulated_${i}; done
 
